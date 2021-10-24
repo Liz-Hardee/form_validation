@@ -5,9 +5,10 @@ let classes = (classes) => document.getElementsByClassName(classes);
 
 let emptyCheck = (index) => {
   let entryNum = classes("input");
-  if (entryNum[index].value === "") {
-    errorMsg[index].innerHTML = `Please provide your ${entryNum[index].name}`;
+  if (entryNum[index].value.trim() === "") {
+    errorMsg[index].innerHTML = `${entryNum[index].name} cannot be blank`;
     failureIcon[index].style.opacity = "1";
+    successIcon[index].style.opacity = "0";
   } else {
     errorMsg[index].innerHTML = "";
     failureIcon[index].style.opacity = "0";
@@ -22,8 +23,6 @@ let username = id("username"),
   errorMsg = classes("error"),
   successIcon = classes("success-icon"),
   failureIcon = classes("failure-icon");
-
-password.type = "password";
 
 form.addEventListener("submit", (e) => {
   e.preventDefault(); // stops flicker error message
