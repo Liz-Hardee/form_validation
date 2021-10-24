@@ -23,6 +23,8 @@ let username = id("username"),
   successIcon = classes("success-icon"),
   failureIcon = classes("failure-icon");
 
+password.type = "password";
+
 form.addEventListener("submit", (e) => {
   e.preventDefault(); // stops flicker error message
   for (let i = 0; i < 3; i++) {
